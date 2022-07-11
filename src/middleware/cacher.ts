@@ -10,8 +10,9 @@ const getCache = (
   req: express.Request,
   res: express.Response,
   next: express.NextFunction
-) : express.Response | void => {
-  const key: string = req.query.filename + '_' + req.query.width + '_' + req.query.height;
+): express.Response | void => {
+  const key: string =
+    req.query.filename + '_' + req.query.width + '_' + req.query.height;
   console.log('Filename: ' + req.query.filename);
   console.log('Width: ' + req.query.width);
   console.log('Height: ' + req.query.height);
@@ -25,4 +26,4 @@ const getCache = (
   }
 };
 
-export default {setCache, getCache};
+export default { setCache, getCache };

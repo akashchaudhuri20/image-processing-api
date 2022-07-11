@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import { promises as fsPromises } from 'fs';
 import resizeProcessor from '../processor/resizeProcessor';
-import cache from '../middleware/cache';
+import cache from '../middleware/cacher';
 
 const resize = async (
     req: express.Request,
@@ -36,11 +36,13 @@ const resize = async (
   
       // Invoking the resizeProcessor
       try {
-        resizedImage = await resizeProcessor(`${originalFilePath}/${fileNameWithExtension}`, height, width);
+    resizedImage = await resizeProcessor(
+      `${originalFilePath}/${fileNameWithExtension}`,
+      height,
+      width
+    );
       } catch (e) {
-        return res
-          .status(500)
-          .send({ message: 'Failed to access/resize image.' });
+    return res.status(500).send({ message: 'Failed to access/resize image.' });
       }
       console.log('Successfully Processed Image');
   
@@ -58,8 +60,6 @@ const resize = async (
   
       res.writeHead(200, { 'Content-Type': 'image/jpeg' });
       return res.end(resizedImage);
-    
   };
 
   export default resize;
-

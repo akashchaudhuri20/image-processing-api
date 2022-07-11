@@ -5,13 +5,14 @@
 # Commands for building, starting and testing the Image Processing API
 
 1. For cloning from GIT to local - git clone <git-clone-url>
-2. For installing dependencies - npm install packages
+2. For installing dependencies - npm i
 3. For formatting the code to a consistent style - npm run prettier
 4. For running linter (ESLint) - npm run lint
 5. For building the project - npm run build
 6. For running in development mode - npm run dev 
 7. For running tests - npm run jasmine
 8. For starting the server - npm run start
+9. For running all tests - npm run test
 
 # Start the server and test through Browser/Postman using the below URLs
 
